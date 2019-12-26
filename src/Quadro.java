@@ -1,7 +1,7 @@
 
-public class Quadro extends Lavoratore {
+public class Quadro extends Lavoratore implements Responsabile{
 	/*
-	 * Numero di squadre di cui è stato caposquadra*/
+	 * Numero di squadre di cui Ã¨ stato caposquadra*/
 	private int numeroSquadre;
 	
 	public Quadro(String nome, String cognome, String codFis) {
@@ -20,4 +20,21 @@ public class Quadro extends Lavoratore {
 	public void incrementNumeroSquadre() {
 		numeroSquadre++;
 	}
+	
+	public String toString() {
+		return super.toString() + "[numeroSquadre=" + numeroSquadre + "]";
+	}
+	
+	public boolean equals(Object o) {
+		if(super.equals(o)==false) return false;
+		Quadro q = (Quadro) o;
+		return numeroSquadre==q.getNumeroSquadre();
+	}
+	
+	public Quadro clone() {
+		Quadro clone = (Quadro) super.clone();
+		clone.numeroSquadre = this.numeroSquadre;
+		return clone;
+	}
+	
 }

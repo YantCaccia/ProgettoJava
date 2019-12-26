@@ -16,4 +16,21 @@ public class Impiegato extends Lavoratore {
 	public void setOreLavoro(int newOreLavoro) {
 		this.oreLavoro = newOreLavoro;
 	}
+	
+	public String toString() {
+		return super.toString() + "[oreLavoro=" + oreLavoro + "]";
+	}
+	
+	public boolean equals(Object o) {
+		if(super.equals(o)==false) return false;
+		Impiegato i = (Impiegato) o;
+		return oreLavoro==i.getOreLavoro();
+	}
+	
+	public Impiegato clone() {
+		Impiegato clone = (Impiegato) super.clone();
+		clone.oreLavoro = this.oreLavoro;
+		return clone;
+	}
+	
 }
