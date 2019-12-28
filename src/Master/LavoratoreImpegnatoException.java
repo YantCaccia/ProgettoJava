@@ -1,3 +1,4 @@
+package Master;
 public class LavoratoreImpegnatoException extends Exception {
 	/**
 	 * 

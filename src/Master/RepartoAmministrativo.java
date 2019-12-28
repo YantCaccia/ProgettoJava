@@ -1,4 +1,15 @@
+package Master;
 import java.util.ArrayList;
+
+import Dipendenti.Dirigente;
+import Dipendenti.Impiegato;
+import Dipendenti.Lavoratore;
+import Dipendenti.Operaio;
+import Dipendenti.Quadro;
+import Esterno.Cliente;
+import Esterno.Fornitore;
+import Esterno.Locale;
+import Esterno.Prodotto;
 
 public class RepartoAmministrativo {
 		
@@ -32,6 +43,9 @@ public class RepartoAmministrativo {
 	
 	public void addLavoratore(Lavoratore l) {
 		lavoratori.add(l);
+		if((l instanceof Dirigente)||(l instanceof Impiegato)) {
+			l.setBusy(true);
+		}
 	}
 	
 	public void addFornitore(Fornitore f) {
@@ -116,9 +130,9 @@ public class RepartoAmministrativo {
 		return toBeRet;
 	}
 	
-	private final int STIPENDIO_BASE = 1500;
-	private final int PAGA_PER_ORA = 15;
-	private final int PAGA_PER_CANTIERE = 500;
-	private final int PAGA_PER_SQUADRA = 1000;
+	private static final int STIPENDIO_BASE = 1500;
+	private static final int PAGA_PER_ORA = 15;
+	private static final int PAGA_PER_CANTIERE = 500;
+	private static final int PAGA_PER_SQUADRA = 1000;
 	
 }

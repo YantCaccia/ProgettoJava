@@ -1,3 +1,4 @@
+package Dipendenti;
 
 public class Quadro extends Lavoratore implements Responsabile{
 	/*

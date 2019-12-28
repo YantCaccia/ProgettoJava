@@ -1,3 +1,4 @@
+package Esterno;
 
 public enum Prodotto {
 	MATERIAPRIMA,

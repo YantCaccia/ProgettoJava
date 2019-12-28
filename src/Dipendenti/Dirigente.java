@@ -1,3 +1,4 @@
+package Dipendenti;
 
 public class Dirigente extends Lavoratore implements Responsabile {
 	/**

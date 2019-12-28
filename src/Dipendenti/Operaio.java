@@ -1,3 +1,4 @@
+package Dipendenti;
 
 public class Operaio extends Lavoratore {
 	/*

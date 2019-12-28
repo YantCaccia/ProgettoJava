@@ -1,3 +1,4 @@
+package Dipendenti;
 
 public class Lavoratore implements Cloneable {
 	
@@ -34,7 +35,7 @@ public class Lavoratore implements Cloneable {
 	}
 	
 	public String toString() {
-		return getClass().getName() + "[nome=" + nome + ",cognome=" + cognome + ",codFis=" + ",busy=" + busy + "]";
+		return getClass().getName() + "[nome=" + nome + ",cognome=" + cognome + ",codFis=" + codFis + ",busy=" + busy + "]";
 	}
 	
 	public boolean equals(Object o) {
