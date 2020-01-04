@@ -1,4 +1,4 @@
-package Master;
+package dirigenza;
 public class LavoratoreImpegnatoException extends Exception {
 	/**
 	 * 

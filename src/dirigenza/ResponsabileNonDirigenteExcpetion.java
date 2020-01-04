@@ -1,4 +1,4 @@
-package Master;
+package dirigenza;
 
 public class ResponsabileNonDirigenteExcpetion extends Exception {
 

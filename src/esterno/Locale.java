@@ -1,15 +1,15 @@
-package Esterno;
+package esterno;
 
 public class Locale {
 
 		private String nome;
 		private String indirizzo;
-		private String città;
+		private String citta;
 		
-		public Locale(String nome, String indirizzo, String città) {
+		public Locale(String nome, String indirizzo, String citta) {
 			this.nome = (nome==null?"":nome);
 			this.indirizzo = (indirizzo==null?"":indirizzo);
-			this.città = (città==null?"":città);
+			this.citta = (citta==null?"":citta);
 		}
 		
 		public String getNome() {
@@ -21,6 +21,6 @@ public class Locale {
 		}
 		
 		public String getCitta() {
-			return città;
+			return citta;
 		}
 }

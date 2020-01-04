@@ -1,4 +1,4 @@
-package Esterno;
+package esterno;
 
 public class Fornitore {
 	

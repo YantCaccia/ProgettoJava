@@ -1,8 +1,8 @@
-package Master;
+package dirigenza;
 import java.util.ArrayList;
 
-import Dipendenti.Operaio;
-import Dipendenti.Quadro;
+import dipendenti.Operaio;
+import dipendenti.Quadro;
 
 public class Squadra {
 	

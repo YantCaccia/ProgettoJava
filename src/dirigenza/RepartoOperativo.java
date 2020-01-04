@@ -1,9 +1,9 @@
-package Master;
+package dirigenza;
 import java.util.ArrayList;
 
-import Dipendenti.Operaio;
-import Dipendenti.Quadro;
-import Dipendenti.Responsabile;
+import dipendenti.Operaio;
+import dipendenti.Quadro;
+import dipendenti.Responsabile;
 
 public class RepartoOperativo {
 	

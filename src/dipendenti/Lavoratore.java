@@ -1,6 +1,6 @@
-package Dipendenti;
+package dipendenti;
 
-public class Lavoratore implements Cloneable {
+public abstract class Lavoratore implements Cloneable {
 	
 	private String nome;
 	private String cognome;

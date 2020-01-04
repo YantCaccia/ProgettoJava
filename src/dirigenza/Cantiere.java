@@ -1,6 +1,6 @@
-package Master;
-import Dipendenti.Lavoratore;
-import Dipendenti.Responsabile;
+package dirigenza;
+import dipendenti.Lavoratore;
+import dipendenti.Responsabile;
 
 public class Cantiere {
 	

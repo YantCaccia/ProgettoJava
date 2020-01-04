@@ -1,4 +1,4 @@
-package Dipendenti;
+package dipendenti;
 
 public class Impiegato extends Lavoratore {
 	/*
