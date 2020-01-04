@@ -17,4 +17,8 @@ public class Cliente {
 	public String getpIva() {
 		return pIva;
 	}
+	
+	public String toString() {
+		return getClass().getName() + "[nome=" + nome + ", pIva=" + pIva + "]";
+	}
 }

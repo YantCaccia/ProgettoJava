@@ -38,6 +38,10 @@ public class Cantiere {
 		this.squadra = s;
 	}
 	
+	public String toString() {
+		return getClass().getName() + "[valore=" + valore + ", resp=" + resp + ", squadra=" + squadra + "]";
+	}
+	
 	public boolean equals(Object o) {
 		if(o==null) return false;
 		if(getClass()!=o.getClass()) return false;

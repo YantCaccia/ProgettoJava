@@ -32,12 +32,16 @@ public class Squadra {
 		listaOperai.add(o);
 	}
 	
-	protected boolean isAssigned() {
+	public boolean isAssigned() {
 		return assigned;
 	}
 	
-	protected void setAssigned(boolean state) {
+	public void setAssigned(boolean state) {
 		this.assigned = state;
+	}
+	
+	public String toString() {
+		return getClass().getName() + "[caposquadra=" + caposquadra + ", assigned=" + assigned + ", listaOperai=" + listaOperai + "]";
 	}
 	
 	public boolean equals(Object o) {

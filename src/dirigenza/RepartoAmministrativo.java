@@ -12,8 +12,7 @@ import esterno.Locale;
 import esterno.Prodotto;
 
 public class RepartoAmministrativo {
-		
-	private ArrayList<Lavoratore> lavoratori;
+
 	private ArrayList<Operaio> operai;
 	private ArrayList<Impiegato> impiegati;
 	private ArrayList<Dirigente> dirigenti;
@@ -23,7 +22,6 @@ public class RepartoAmministrativo {
 	private ArrayList<Cliente> clienti;
 	
 	public RepartoAmministrativo() {
-		lavoratori = new ArrayList<Lavoratore>();
 		dirigenti = new ArrayList<Dirigente>();
 		operai= new ArrayList<Operaio>();
 		impiegati = new ArrayList<Impiegato>();
@@ -34,6 +32,19 @@ public class RepartoAmministrativo {
 	}
 	
 	public ArrayList<Lavoratore> getLavoratori(){
+		ArrayList<Lavoratore> lavoratori = new ArrayList<Lavoratore>();
+		for(Impiegato l:impiegati) {
+			lavoratori.add(l);
+		}
+		for(Dirigente l:dirigenti) {
+			lavoratori.add(l);
+		}
+		for(Quadro l:quadri) {
+			lavoratori.add(l);
+		}
+		for(Operaio l:operai) {
+			lavoratori.add(l);
+		}
 		return lavoratori;
 	}
 	
@@ -66,25 +77,19 @@ public class RepartoAmministrativo {
 	}
 	
 	public void addLavoratore(Operaio o) {
-		lavoratori.add(o);
 		operai.add(o);
 	}
 	
 	public void addLavoratore(Impiegato i) {
-		lavoratori.add(i);
 		impiegati.add(i);
-		i.setBusy(true);
 	}
 	
 	public void addLavoratore(Quadro q) {
-		lavoratori.add(q);
 		quadri.add(q);
 	}
 	
 	public void addLavoratore(Dirigente d) {
-		lavoratori.add(d);
 		dirigenti.add(d);
-		d.setBusy(true);
 	}
 	
 	public void addFornitore(Fornitore f) {
@@ -115,13 +120,13 @@ public class RepartoAmministrativo {
 		int bonus;
 		switch(d.getRuolo()) {
 		case AMMINISTRATORE:
-			bonus = 2000;
+			bonus = 4000;
 			break;
 		case VICEDIRETTORE:
-			bonus = 3000;
+			bonus = 7000;
 			break;
 		case DIRETTORE:
-			bonus = 4000;
+			bonus = 10000;
 			break;
 		default:
 			bonus = 0; //impossible
@@ -129,9 +134,9 @@ public class RepartoAmministrativo {
 		return STIPENDIO_BASE + bonus;
 	}
 	
-	public ArrayList<Lavoratore> getLavoratoriNonImpegnati(){
-		ArrayList<Lavoratore> toBeRet = new ArrayList<Lavoratore>();
-		for (Lavoratore l:lavoratori) {
+	public ArrayList<Operaio> getOperaiNonImpegnati(){
+		ArrayList<Operaio> toBeRet = new ArrayList<Operaio>();
+		for (Operaio l:operai) {
 			if(!l.isBusy()) {
 				toBeRet.add(l);
 			}
@@ -139,9 +144,29 @@ public class RepartoAmministrativo {
 		return toBeRet;
 	}
 	
-	public ArrayList<Lavoratore> getLavoratoriImpegnati(){
-		ArrayList<Lavoratore> toBeRet = new ArrayList<Lavoratore>();
-		for (Lavoratore l:lavoratori) {
+	public ArrayList<Operaio> getOperaiImpegnati(){
+		ArrayList<Operaio> toBeRet = new ArrayList<Operaio>();
+		for (Operaio l:operai) {
+			if(l.isBusy()) {
+				toBeRet.add(l);
+			}
+		}
+		return toBeRet;
+	}
+	
+	public ArrayList<Quadro> getQuadriNonImpegnati(){
+		ArrayList<Quadro> toBeRet = new ArrayList<Quadro>();
+		for (Quadro l:quadri) {
+			if(!l.isBusy()) {
+				toBeRet.add(l);
+			}
+		}
+		return toBeRet;
+	}
+	
+	public ArrayList<Quadro> getQuadriImpegnati(){
+		ArrayList<Quadro> toBeRet = new ArrayList<Quadro>();
+		for (Quadro l:quadri) {
 			if(l.isBusy()) {
 				toBeRet.add(l);
 			}

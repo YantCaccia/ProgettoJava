@@ -7,7 +7,7 @@ import dipendenti.Responsabile;
 
 public class RepartoOperativo {
 	
-	private ArrayList<Cantiere> cantieri;
+	private ArrayList<Cantiere> cantieri; //lista dei cantieri aperti
 	
 	public RepartoOperativo() {
 		cantieri = new ArrayList<Cantiere>();
@@ -38,6 +38,8 @@ public class RepartoOperativo {
 		return c;
 	}
 	
+	/*
+	 * quando l'impresa ha finito il lavoro in un cantiere*/
 	public Cantiere removeCantiere(Cantiere c) {
 		int tmp = cantieri.indexOf(c);
 		if(tmp<0) {

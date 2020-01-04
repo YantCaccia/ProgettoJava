@@ -4,6 +4,7 @@ public class Operaio extends Lavoratore {
 	/*
 	 * Numero di cantieri a cui ha lavorato in un mese*/
 	private int numeroCantieri;
+	private boolean busy; 
 	
 	public Operaio(String nome, String cognome, String codFis) {
 		super(nome, cognome, codFis);
@@ -22,14 +23,22 @@ public class Operaio extends Lavoratore {
 		numeroCantieri++;
 	}
 	
+	public boolean isBusy() {
+		return busy;
+	}
+	
+	public void setBusy(boolean state) {
+		this.busy = state;
+	}
+	
 	public String toString() {
-		return super.toString() + "[numeroCantieri=" + numeroCantieri + "]";
+		return super.toString() + "[numeroCantieri=" + numeroCantieri + ", busy=" + busy + "]";
 	}
 	
 	public boolean equals(Object o) {
 		if(super.equals(o)==false) return false;
 		Operaio op = (Operaio) o;
-		return numeroCantieri==op.getNumeroCantieri();
+		return numeroCantieri==op.getNumeroCantieri() && busy==op.isBusy();
 	}
 	
 	public Operaio clone() {

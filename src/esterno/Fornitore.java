@@ -24,4 +24,8 @@ public class Fornitore {
 		return prodottoFornito;
 	}
 	
+	public String toString() {
+		return getClass().getName() + "[nome=" + nome + ", pIva=" + pIva + ", prodottoFornito=" + prodottoFornito + "]";
+	}
+	
 }

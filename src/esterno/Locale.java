@@ -23,4 +23,8 @@ public class Locale {
 		public String getCitta() {
 			return citta;
 		}
+		
+		public String toString() {
+			return getClass().getName() + "[nome=" + nome + ", indirizzo=" + indirizzo + ", citta=" + citta + "]";
+		}
 }
