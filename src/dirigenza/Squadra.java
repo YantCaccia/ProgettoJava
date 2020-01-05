@@ -10,7 +10,10 @@ public class Squadra {
 	private boolean assigned;
 	private ArrayList<Operaio> listaOperai;
 	
-	protected Squadra(Quadro caposquadra) {
+	protected Squadra(Quadro caposquadra) throws LavoratoreImpegnatoException {
+		if(caposquadra.isBusy()) {
+			throw new LavoratoreImpegnatoException("Il lavoratore che hai cercato di aggiungere alla squadra è già impegnato");
+		}
 		this.caposquadra = caposquadra;
 		this.assigned = false;
 		listaOperai = new ArrayList<Operaio>();

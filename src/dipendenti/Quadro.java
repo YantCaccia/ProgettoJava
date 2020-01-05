@@ -11,6 +11,11 @@ public class Quadro extends Lavoratore implements Responsabile{
 		this.numeroSquadre = 0;
 	}
 	
+	public Quadro(String nome, String cognome, String codFis, int numeroSquadre) {
+		super(nome, cognome, codFis);
+		this.numeroSquadre = numeroSquadre;
+	}
+	
 	public int getNumeroSquadre() {
 		return numeroSquadre;
 	}

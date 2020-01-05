@@ -8,7 +8,13 @@ public class Cantiere {
 	Responsabile resp;
 	Squadra squadra;
 	
-	protected Cantiere(int valore, Responsabile resp, Squadra s) {
+	protected Cantiere(int valore, Responsabile resp, Squadra s) throws ResponsabileNonDirigenteExcpetion  {
+		if(valore > VALORE_MAX && !resp.getClass().getName().equals("Dirigente")) {
+			throw new ResponsabileNonDirigenteExcpetion("Il Responsabile di questo cantiere deve essere un Dirigente");	
+		}
+		if(s.isAssigned()) {
+			throw new SquadraIsAlreadyAssignedExcpetion("La squadra non può essere assegnata ad un altro cantiere poichè è già impegnata");
+		}
 		this.valore = valore;
 		this.resp = resp;
 		this.squadra = s;
@@ -26,7 +32,10 @@ public class Cantiere {
 		return resp;
 	}
 
-	protected void setResp(Responsabile newResp) {
+	protected void setResp(Responsabile newResp) throws ResponsabileNonDirigenteExcpetion {
+		if(valore > VALORE_MAX && !newResp.getClass().getName().equals("Dirigente")) {
+			throw new ResponsabileNonDirigenteExcpetion("Il Responsabile di questo cantiere deve essere un Dirigente");	
+		}
 		this.resp = newResp;
 	}
 
@@ -48,5 +57,10 @@ public class Cantiere {
 		Cantiere c = (Cantiere) o;
 		return this.valore==c.getValore() && ((Lavoratore)this.resp).equals((Lavoratore)c.getResp()) && this.squadra.equals(c.getSquadra());
 	}
+	
+	/*
+	 * Massimo importo in euro dopo il quale è necessario
+	 * che il responsabile sia un dirigente */
+	private static final int VALORE_MAX = 500000;
 
 }

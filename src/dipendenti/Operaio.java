@@ -11,6 +11,11 @@ public class Operaio extends Lavoratore {
 		this.numeroCantieri = 0;
 	}
 	
+	public Operaio(String nome, String cognome, String codFis, int numerocantieri) {
+		super(nome, cognome, codFis);
+		this.numeroCantieri = numerocantieri;
+	}
+	
 	public int getNumeroCantieri() {
 		return numeroCantieri;
 	}
