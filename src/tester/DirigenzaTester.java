@@ -149,7 +149,7 @@ public class DirigenzaTester {
 		
 		//Stampo lista Cantieri
 		System.out.println("\nCreo nuovi Cantieri attraverso Reparto Operativo\nLista Cantieri:\n" + ro.getCantieri());
-		System.out.println("\nLista dei Cantieri il cui valore è compreso tra 5000 e 1000:\n" + ro.getCantieriByValue(5000, 10000));
+		System.out.println("\nLista dei Cantieri il cui valore e' compreso tra 5000 e 1000:\n" + ro.getCantieriByValue(5000, 10000));
 		
 		//Chiudiamo il primo Cantiere
 		ro.removeCantiere(can1);
@@ -158,6 +158,14 @@ public class DirigenzaTester {
 		//Cambiamo il Responsabile dell'ultimo cantiere
 		ro.changeResponsabileCantiere(q3, can3);
 		System.out.println("\nDopo il cambio Responsabile per l'ultimo Cantiere:\n" + ro.getCantieri());
+		
+		//Testo la Clone di Cantiere
+		System.out.println("\nTesto la Clone di Cantiere");
+		Cantiere can4 = can3.clone();
+		System.out.println("cantiere4 e' un clone di cantiere3\ncantiere3:\n"+ can3 + "\ncantiere4:\n" + can4);
+		System.out.println("Modifico cantiere4 (modifico il valore)");
+		can4.setValore(1);
+		System.out.println("cantiere3:\n"+ can3 + "\ncantiere4:\n" + can4);
 		
 		
 

@@ -1,6 +1,6 @@
 package esterno;
 
-public class Cliente implements Cloneable{
+public final class Cliente implements Cloneable{
 	
 	private String nome;
 	private String pIva;

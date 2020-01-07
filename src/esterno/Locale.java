@@ -1,6 +1,6 @@
 package esterno;
 
-public class Locale implements Cloneable{
+public final class Locale implements Cloneable{
 
 		private String nome;
 		private String indirizzo;

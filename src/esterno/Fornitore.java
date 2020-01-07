@@ -1,6 +1,6 @@
 package esterno;
 
-public class Fornitore implements Cloneable {
+public final class Fornitore implements Cloneable {
 	
 	private String nome;
 	private String pIva;

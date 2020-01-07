@@ -9,7 +9,7 @@ import dipendenti.*;
 
 public class testing {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ResponsabileNonDirigenteExcpetion, LavoratoreImpegnatoException {
 		
 		RepartoAmministrativo ra = new RepartoAmministrativo();
 
@@ -30,7 +30,7 @@ public class testing {
 		Quadro q1 = new Quadro("Luigi", "Bianchi", "BNCLGI");
 		q1.setNumeroSquadre(3);
 		Quadro q2 = new Quadro("Giacomo", "Verdi", "VRDGCM");
-		q2.setBusy(true);
+		q2.setBusy(false);
 		q2.setNumeroSquadre(2);
 		Quadro q3 = new Quadro("Vincenzo", "Bellini", "BLLVNC");
 		q3.setNumeroSquadre(4);
@@ -47,6 +47,12 @@ public class testing {
 		ra.addLavoratore(q1);
 		ra.addLavoratore(q2);
 		ra.addLavoratore(q3);
+		
+		RepartoOperativo ro = new RepartoOperativo();
+		Squadra s1 = ro.createSquadra(q3);
+		ro.addOperaioToSquadra(o1, s1);
+		ro.addOperaioToSquadra(o2, s1);
+		System.out.println(s1);
 		
 		
 	}

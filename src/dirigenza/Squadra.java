@@ -58,6 +58,7 @@ public class Squadra implements Cloneable{
 		try {
 			Squadra toBeRet = (Squadra) super.clone();
 			toBeRet.caposquadra = caposquadra.clone();
+			toBeRet.listaOperai = new ArrayList<Operaio>();
 			for(Operaio o:listaOperai) {
 				toBeRet.listaOperai.add(o.clone());
 			}
