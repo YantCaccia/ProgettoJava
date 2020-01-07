@@ -14,7 +14,11 @@ public class RepartoOperativo {
 	}
 	
 	public ArrayList<Cantiere> getCantieri(){
-		return cantieri;
+		ArrayList<Cantiere> toberet = new ArrayList<Cantiere>();
+		for(Cantiere c:cantieri) {
+			toberet.add(c.clone());
+		}
+		return toberet;
 	}
 	
 	public void addCantiere(Cantiere c) {

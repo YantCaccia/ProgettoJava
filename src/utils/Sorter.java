@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Sorter<T> {
 	
-	public ArrayList<T> sort(ArrayList<T> list, Comparator<T> c){
+	public ArrayList<? extends T> sort(ArrayList<? extends T> list, Comparator<T> c){
 		//Selection Sort
 		for(int i = 0; i < list.size() - 1; i++) {
 			int pos = i;

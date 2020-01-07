@@ -49,31 +49,59 @@ public class RepartoAmministrativo {
 	}
 	
 	public ArrayList<Operaio> getOperai(){
-		return operai;
+		ArrayList<Operaio> toberet = new ArrayList<Operaio>();
+		for(Operaio o:operai) {
+			toberet.add(o.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Dirigente> getDirigenti(){
-		return dirigenti;
+		ArrayList<Dirigente> toberet = new ArrayList<Dirigente>();
+		for(Dirigente d:dirigenti) {
+			toberet.add(d.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Quadro> getQuadri(){
-		return quadri;
+		ArrayList<Quadro> toberet = new ArrayList<Quadro>();
+		for(Quadro q:quadri) {
+			toberet.add(q.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Impiegato> getImpiegati(){
-		return impiegati;
+		ArrayList<Impiegato> toberet = new ArrayList<Impiegato>();
+		for(Impiegato i:impiegati) {
+			toberet.add(i.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Fornitore> getFornitori(){
-		return fornitori;
+		ArrayList<Fornitore> toberet = new ArrayList<Fornitore>();
+		for(Fornitore f:fornitori) {
+			toberet.add(f.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Locale> getLocali(){
-		return locali;
+		ArrayList<Locale> toberet = new ArrayList<Locale>();
+		for(Locale l:locali) {
+			toberet.add(l.clone());
+		}
+		return toberet;
 	}
 	
 	public ArrayList<Cliente> getClienti(){
-		return clienti;
+		ArrayList<Cliente> toberet = new ArrayList<Cliente>();
+		for(Cliente c:clienti) {
+			toberet.add(c.clone());
+		}
+		return toberet;
 	}
 	
 	public void addLavoratore(Operaio o) {

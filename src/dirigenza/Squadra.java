@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import dipendenti.Operaio;
 import dipendenti.Quadro;
 
-public class Squadra {
+public class Squadra implements Cloneable{
 	
 	private Quadro caposquadra;
 	private boolean assigned;
@@ -52,5 +52,19 @@ public class Squadra {
 		if(getClass()!=o.getClass()) return false;
 		Squadra s = (Squadra) o;
 		return this.caposquadra.equals(s.getCaposquadra()) && this.assigned==s.isAssigned() && this.listaOperai.equals(s.getListaOperai());
+	}
+	
+	public Squadra clone() {
+		try {
+			Squadra toBeRet = (Squadra) super.clone();
+			toBeRet.caposquadra = caposquadra.clone();
+			for(Operaio o:listaOperai) {
+				toBeRet.listaOperai.add(o.clone());
+			}
+			return toBeRet;
+		}
+		catch (CloneNotSupportedException e) {
+			return null;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 package esterno;
 
-public class Locale {
+public class Locale implements Cloneable{
 
 		private String nome;
 		private String indirizzo;
@@ -26,5 +26,15 @@ public class Locale {
 		
 		public String toString() {
 			return getClass().getName() + "[nome=" + nome + ", indirizzo=" + indirizzo + ", citta=" + citta + "]";
+		}
+		
+		public Locale clone() {
+			try {
+				Locale clone = (Locale) super.clone();
+				return clone;
+			}
+			catch(CloneNotSupportedException e) {
+				return null;
+			}
 		}
 }

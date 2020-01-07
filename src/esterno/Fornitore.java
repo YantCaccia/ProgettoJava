@@ -1,6 +1,6 @@
 package esterno;
 
-public class Fornitore {
+public class Fornitore implements Cloneable {
 	
 	private String nome;
 	private String pIva;
@@ -26,6 +26,17 @@ public class Fornitore {
 	
 	public String toString() {
 		return getClass().getName() + "[nome=" + nome + ", pIva=" + pIva + ", prodottoFornito=" + prodottoFornito + "]";
+	}
+	
+	public Fornitore clone() {
+		try {
+			Fornitore clone = (Fornitore) super.clone();
+			clone.prodottoFornito = prodottoFornito;
+			return clone;
+		}
+		catch(CloneNotSupportedException e) {
+			return null;
+		}
 	}
 	
 }

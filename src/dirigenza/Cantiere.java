@@ -1,8 +1,10 @@
 package dirigenza;
+import dipendenti.Dirigente;
 import dipendenti.Lavoratore;
+import dipendenti.Quadro;
 import dipendenti.Responsabile;
 
-public class Cantiere {
+public class Cantiere implements Cloneable {
 	
 	private int valore;
 	Responsabile resp;
@@ -56,6 +58,23 @@ public class Cantiere {
 		if(getClass()!=o.getClass()) return false;
 		Cantiere c = (Cantiere) o;
 		return this.valore==c.getValore() && ((Lavoratore)this.resp).equals((Lavoratore)c.getResp()) && this.squadra.equals(c.getSquadra());
+	}
+	
+	public Cantiere clone() {
+		try {
+			Cantiere clone = (Cantiere) super.clone();
+			clone.squadra = squadra.clone();
+			if(resp instanceof Dirigente) {
+				clone.resp = (Responsabile)((Dirigente) resp).clone();
+			}
+			else {
+				clone.resp = (Responsabile)((Quadro) resp).clone();
+			}
+			return clone;
+		}
+		catch(CloneNotSupportedException e) {
+			return null;
+		}
 	}
 	
 	/*
