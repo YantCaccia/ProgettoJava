@@ -15,7 +15,7 @@ public class Cantiere implements Cloneable {
 			throw new ResponsabileNonDirigenteExcpetion("Il Responsabile di questo cantiere deve essere un Dirigente");	
 		}
 		if(s.isAssigned()) {
-			throw new SquadraIsAlreadyAssignedExcpetion("La squadra non può essere assegnata ad un altro cantiere poichè è già impegnata");
+			throw new SquadraIsAlreadyAssignedExcpetion("La squadra non puo' essere assegnata ad un altro cantiere poiche' e' gia'� impegnata");
 		}
 		this.valore = valore;
 		this.resp = resp;
@@ -78,7 +78,7 @@ public class Cantiere implements Cloneable {
 	}
 	
 	/*
-	 * Massimo importo in euro dopo il quale è necessario
+	 * Massimo importo in euro dopo il quale e' necessario
 	 * che il responsabile sia un dirigente */
 	private static final int VALORE_MAX = 500000;
 
