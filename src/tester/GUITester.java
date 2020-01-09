@@ -2,7 +2,6 @@ package tester;
 
 import dipendenti.Dirigente;
 import dipendenti.Impiegato;
-import dipendenti.Lavoratore;
 import dipendenti.Operaio;
 import dipendenti.Quadro;
 import dipendenti.Ruolo;
@@ -18,16 +17,11 @@ import esterno.Locale;
 import esterno.Prodotto;
 import gui.MainFrame;
 
-import java.awt.BorderLayout;
-import java.awt.TextArea;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-
 import javax.swing.*;
 
 public class GUITester {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws LavoratoreImpegnatoException, ResponsabileNonDirigenteExcpetion {
 		
 		//Istanzio un nuovo Reparto Amministrativo
@@ -125,9 +119,9 @@ public class GUITester {
 				ro.addOperaioToSquadra(o3, s3);
 				
 				//Creo nuovi Cantieri
-				Cantiere can1 = ro.createCantiere(5000, d1, s1);
-				Cantiere can2 = ro.createCantiere(2000, q1, s2);
-				Cantiere can3 = ro.createCantiere(7000, d2, s3);
+				Cantiere can1 = ro.createCantiere("Scuola", 5000, d1, s1);
+				Cantiere can2 = ro.createCantiere("Condominio", 2000, q1, s2);
+				Cantiere can3 = ro.createCantiere("Villetta", 7000, d2, s3);
 		
 				/*---------*/
 				
@@ -165,7 +159,7 @@ public class GUITester {
 				mainFrame.add(mainPanel);
 				mainFrame.setVisible(true);*/
 				
-				JFrame mainFrame = new MainFrame(ro);
+				JFrame mainFrame = new MainFrame(ro, ra);
 				mainFrame.setTitle("Impresa Edile");
 				mainFrame.setSize(1000, 800);
 				mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

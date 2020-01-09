@@ -6,11 +6,13 @@ import dipendenti.Responsabile;
 
 public class Cantiere implements Cloneable {
 	
+	String nome;
 	private int valore;
 	Responsabile resp;
 	Squadra squadra;
 	
-	protected Cantiere(int valore, Responsabile resp, Squadra s) throws ResponsabileNonDirigenteExcpetion  {
+	protected Cantiere(String nome, int valore, Responsabile resp, Squadra s) throws ResponsabileNonDirigenteExcpetion  {
+		this.nome = (nome==null?"":nome);
 		if(valore > VALORE_MAX && !resp.getClass().getName().equals("Dirigente")) {
 			throw new ResponsabileNonDirigenteExcpetion("Il Responsabile di questo cantiere deve essere un Dirigente");	
 		}
@@ -21,13 +23,25 @@ public class Cantiere implements Cloneable {
 		this.resp = resp;
 		this.squadra = s;
 	}
+	
+	public String getNome() {
+		return nome;
+	}
 
 	public int getValore() {
 		return valore;
 	}
+	
+	public void setNome(String s) {
+		nome = (s==null?"":s);
+	}
 
 	public void setValore(int valore) {
 		this.valore = valore;
+	}
+	
+	public void setResponsabile(Responsabile resp) {
+		this.resp = resp;
 	}
 
 	public Responsabile getResp() {
@@ -50,14 +64,14 @@ public class Cantiere implements Cloneable {
 	}
 	
 	public String toString() {
-		return getClass().getName() + "[valore=" + valore + ", resp=" + resp + ", squadra=" + squadra + "]";
+		return getClass().getName() + "[nome=" + nome + ", valore=" + valore + ", resp=" + resp + ", squadra=" + squadra + "]";
 	}
 	
 	public boolean equals(Object o) {
 		if(o==null) return false;
 		if(getClass()!=o.getClass()) return false;
 		Cantiere c = (Cantiere) o;
-		return this.valore==c.getValore() && ((Lavoratore)this.resp).equals((Lavoratore)c.getResp()) && this.squadra.equals(c.getSquadra());
+		return this.nome.equals(c.getNome()) && this.valore==c.getValore() && ((Lavoratore)this.resp).equals((Lavoratore)c.getResp()) && this.squadra.equals(c.getSquadra());
 	}
 	
 	public Cantiere clone() {

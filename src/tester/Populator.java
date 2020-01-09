@@ -117,9 +117,9 @@ public class Populator {
 		ro.addOperaioToSquadra(o3, s3);
 		
 		//Creo nuovi Cantieri
-		Cantiere can1 = ro.createCantiere(5000, d1, s1);
-		Cantiere can2 = ro.createCantiere(2000, q1, s2);
-		Cantiere can3 = ro.createCantiere(7000, d2, s3);
+		Cantiere can1 = ro.createCantiere("Scuola", 5000, d1, s1);
+		Cantiere can2 = ro.createCantiere("Condominio", 2000, q1, s2);
+		Cantiere can3 = ro.createCantiere("Villetta", 7000, d2, s3);
 
 	}
 

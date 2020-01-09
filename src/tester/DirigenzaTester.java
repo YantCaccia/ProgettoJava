@@ -142,10 +142,10 @@ public class DirigenzaTester {
 		System.out.println("Creo nuove squadre attraverso Reparto Operativo\n" + s1 + "\n" + s2 + "\n" + s3);
 		
 		//Creo nuovi Cantieri
-		Cantiere can1 = ro.createCantiere(5000, d1, s1);
+		Cantiere can1 = ro.createCantiere("Scuola", 10000, d1, s1);
 		@SuppressWarnings("unused")
-		Cantiere can2 = ro.createCantiere(2000, q1, s2);
-		Cantiere can3 = ro.createCantiere(7000, d2, s3);
+		Cantiere can2 = ro.createCantiere("Condominio", 20000, q1, s2);
+		Cantiere can3 = ro.createCantiere("Villetta", 15000, d2, s3);
 		
 		//Stampo lista Cantieri
 		System.out.println("\nCreo nuovi Cantieri attraverso Reparto Operativo\nLista Cantieri:\n" + ro.getCantieri());

@@ -26,8 +26,8 @@ public class RepartoOperativo {
 	}
 	
 	/*Gestione Cantiere*/
-	public Cantiere createCantiere(int valore, Responsabile resp, Squadra s) throws ResponsabileNonDirigenteExcpetion {
-		Cantiere c = new Cantiere(valore, resp, s);
+	public Cantiere createCantiere(String nome, int valore, Responsabile resp, Squadra s) throws ResponsabileNonDirigenteExcpetion {
+		Cantiere c = new Cantiere(nome, valore, resp, s);
 		for(Operaio o:s.getListaOperai()) {
 			o.incrementNumeroCantieri();
 		}
@@ -66,7 +66,7 @@ public class RepartoOperativo {
 	
 	public void addOperaioToSquadra(Operaio o, Squadra s) throws LavoratoreImpegnatoException {
 		if(o.isBusy()) {
-			throw new LavoratoreImpegnatoException("Il lavoratore che hai cercato di aggiungere alla squadra è già impegnato");
+			throw new LavoratoreImpegnatoException("Il lavoratore che hai cercato di aggiungere alla squadra e' gia'� impegnato: " + o.getNome() + "" + o.getCognome());
 		}
 		s.addOperaio(o);
 		o.setBusy(true);
