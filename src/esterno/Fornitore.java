@@ -1,7 +1,13 @@
 package esterno;
 
-public final class Fornitore implements Cloneable {
+import java.io.Serializable;
+
+public final class Fornitore implements Cloneable, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5245332314076965305L;
 	private String nome;
 	private String pIva;
 	private Prodotto prodottoFornito;
@@ -26,6 +32,13 @@ public final class Fornitore implements Cloneable {
 	
 	public String toString() {
 		return getClass().getName() + "[nome=" + nome + ", pIva=" + pIva + ", prodottoFornito=" + prodottoFornito + "]";
+	}
+	
+	public boolean equals(Object o) {
+		if(o==null) return false;
+		if(getClass()!=o.getClass()) return false;
+		Fornitore f = (Fornitore) o;
+		return nome.equals(f.getNome()) && pIva.equals(f.getpIva()) && prodottoFornito.equals(f.getProdottoFornito());
 	}
 	
 	public Fornitore clone() {

@@ -14,7 +14,7 @@ public class InitState extends JPanel {
 		setLayout(new GridLayout(2,1));
 		
 		JButton goToRa = new JButton("Reparto Amministrativo");
-		//goToRa.addActionListener(e -> cl.show(mainPanel, "RepAmm"));
+		goToRa.addActionListener(e -> cl.show(mainPanel, "RepAmm"));
 		JButton goToRo = new JButton("Reparto Operativo");
 		goToRo.addActionListener(e -> cl.show(mainPanel, "RepOp"));
 		

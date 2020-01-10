@@ -2,6 +2,10 @@ package dipendenti;
 
 public class Dirigente extends Lavoratore implements Responsabile {
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4111369283592845736L;
+	/**
 	 * Ruolo che riveste all'interno dell'impresa*/
 	private Ruolo ruolo;
 	

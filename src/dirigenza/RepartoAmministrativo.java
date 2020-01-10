@@ -1,4 +1,5 @@
 package dirigenza;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import dipendenti.Dirigente;
@@ -11,8 +12,12 @@ import esterno.Fornitore;
 import esterno.Locale;
 import esterno.Prodotto;
 
-public class RepartoAmministrativo {
+public class RepartoAmministrativo implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6783399019160291958L;
 	private ArrayList<Operaio> operai;
 	private ArrayList<Impiegato> impiegati;
 	private ArrayList<Dirigente> dirigenti;
@@ -131,6 +136,34 @@ public class RepartoAmministrativo {
 	public void addCliente(Cliente c) {
 		clienti.add(c);
 	}
+
+	public void removeLavoratore(Operaio o) {
+		operai.remove(o);
+	}
+	
+	public void removeLavoratore(Impiegato i) {
+		impiegati.remove(i);
+	}
+	
+	public void removeLavoratore(Quadro q) {
+		quadri.remove(q);
+	}
+	
+	public void removeLavoratore(Dirigente d) {
+		dirigenti.remove(d);
+	}
+	
+	public void removeFornitore(Fornitore f) {
+		fornitori.remove(f);
+	}
+	
+	public void removeLocale(Locale l) {
+		locali.remove(l);
+	}
+	
+	public void removeCliente(Cliente c) {
+		clienti.remove(c);
+	}	
 	
 	public int calcolaStipendio(Impiegato i) {
 		return STIPENDIO_BASE + (PAGA_PER_ORA*i.getOreLavoro());

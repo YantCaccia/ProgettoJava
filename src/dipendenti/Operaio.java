@@ -1,6 +1,10 @@
 package dipendenti;
 
 public class Operaio extends Lavoratore {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4978123532118939207L;
 	/*
 	 * Numero di cantieri a cui ha lavorato in un mese*/
 	private int numeroCantieri;

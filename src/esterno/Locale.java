@@ -1,7 +1,13 @@
 package esterno;
 
-public final class Locale implements Cloneable{
+import java.io.Serializable;
 
+public final class Locale implements Cloneable, Serializable{
+
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1989919838084205431L;
 		private String nome;
 		private String indirizzo;
 		private String citta;
@@ -26,6 +32,13 @@ public final class Locale implements Cloneable{
 		
 		public String toString() {
 			return getClass().getName() + "[nome=" + nome + ", indirizzo=" + indirizzo + ", citta=" + citta + "]";
+		}
+		
+		public boolean equals(Object o) {
+			if(o==null) return false;
+			if(getClass()!=o.getClass()) return false;
+			Locale l = (Locale) o;
+			return nome.equals(l.getNome()) && indirizzo.equals(l.getIndirizzo()) && citta.equals(l.getCitta());
 		}
 		
 		public Locale clone() {

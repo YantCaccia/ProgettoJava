@@ -1,12 +1,17 @@
 package dirigenza;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import dipendenti.Operaio;
 import dipendenti.Quadro;
 import dipendenti.Responsabile;
 
-public class RepartoOperativo {
+public class RepartoOperativo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5246755874357306272L;
 	private ArrayList<Cantiere> cantieri; //lista dei cantieri aperti
 	
 	public RepartoOperativo() {
@@ -44,12 +49,16 @@ public class RepartoOperativo {
 			return null;
 		}
 		else {
-			for(Operaio o:c.getSquadra().getListaOperai()) {
-				o.setBusy(false);
-			}
-			c.getSquadra().getCaposquadra().setBusy(false);
+			freeSquadra(c.getSquadra());
 			return cantieri.remove(tmp);
 		}
+	}
+	
+	public void freeSquadra(Squadra s) {
+		for(Operaio o:s.getListaOperai()) {
+			o.setBusy(false);
+		}
+		s.getCaposquadra().setBusy(false);
 	}
 	
 	public void changeResponsabileCantiere(Responsabile newResp, Cantiere c) throws ResponsabileNonDirigenteExcpetion {

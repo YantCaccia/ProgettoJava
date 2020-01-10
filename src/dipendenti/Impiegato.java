@@ -1,6 +1,10 @@
 package dipendenti;
 
 public class Impiegato extends Lavoratore {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2525203859577914311L;
 	/*
 	 * Ore di lavoro settimanali previste dal contratto*/
 	private int oreLavoro;

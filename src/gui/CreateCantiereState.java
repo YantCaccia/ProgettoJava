@@ -109,23 +109,24 @@ public class CreateCantiereState extends JPanel{
 				Squadra s = null;
 				try {
 					s = ro.createSquadra(nCapo);
+					try {
+						ro.createCantiere(nNome, nValue, nResp, s);
+						for(Operaio o: list.getSelectedValuesList()) {
+							try {
+								ro.addOperaioToSquadra(o, s);
+							} catch (LavoratoreImpegnatoException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}						
+					} catch (ResponsabileNonDirigenteExcpetion e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+						ro.freeSquadra(s);
+					}
 				} catch (LavoratoreImpegnatoException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
-				}
-				try {
-					ro.createCantiere(nNome, nValue, nResp, s);
-				} catch (ResponsabileNonDirigenteExcpetion e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-				for(Operaio o: list.getSelectedValuesList()) {
-					try {
-						ro.addOperaioToSquadra(o, s);
-					} catch (LavoratoreImpegnatoException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
 				}
 				
 				/*Aggiorno la lista nel RepOpMainState*/

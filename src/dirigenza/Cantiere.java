@@ -1,11 +1,17 @@
 package dirigenza;
+import java.io.Serializable;
+
 import dipendenti.Dirigente;
 import dipendenti.Lavoratore;
 import dipendenti.Quadro;
 import dipendenti.Responsabile;
 
-public class Cantiere implements Cloneable {
+public class Cantiere implements Cloneable, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2460198075155216056L;
 	String nome;
 	private int valore;
 	Responsabile resp;

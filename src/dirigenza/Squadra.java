@@ -1,11 +1,16 @@
 package dirigenza;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import dipendenti.Operaio;
 import dipendenti.Quadro;
 
-public class Squadra implements Cloneable{
+public class Squadra implements Cloneable, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5676147365510359805L;
 	private Quadro caposquadra;
 	private boolean assigned;
 	private ArrayList<Operaio> listaOperai;

@@ -1,5 +1,10 @@
 package tester;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import dipendenti.Dirigente;
 import dipendenti.Impiegato;
 import dipendenti.Operaio;
@@ -20,7 +25,7 @@ import esterno.Prodotto;
 public class Populator {
 
 	@SuppressWarnings("unused")
-	public static void main(String[] args) throws LavoratoreImpegnatoException, ResponsabileNonDirigenteExcpetion, SquadraIsAlreadyAssignedExcpetion {
+	public static void main(String[] args) throws LavoratoreImpegnatoException, ResponsabileNonDirigenteExcpetion, SquadraIsAlreadyAssignedExcpetion, FileNotFoundException, IOException {
 		
 		//Istanzio un nuovo Reparto Amministrativo
 		RepartoAmministrativo ra = new RepartoAmministrativo();
@@ -120,6 +125,14 @@ public class Populator {
 		Cantiere can1 = ro.createCantiere("Scuola", 5000, d1, s1);
 		Cantiere can2 = ro.createCantiere("Condominio", 2000, q1, s2);
 		Cantiere can3 = ro.createCantiere("Villetta", 7000, d2, s3);
+		
+		ObjectOutputStream ob1 = new ObjectOutputStream(new FileOutputStream("RepOpSave"));
+		ob1.writeObject(ro);
+		ob1.close();
+		
+		ObjectOutputStream ob2 = new ObjectOutputStream(new FileOutputStream("RepAmmSave"));
+		ob2.writeObject(ra);
+		ob2.close();
 
 	}
 

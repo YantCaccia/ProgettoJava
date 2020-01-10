@@ -1,8 +1,12 @@
 package dipendenti;
 
 public class Quadro extends Lavoratore implements Responsabile{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3918369214725947669L;
 	/*
-	 * Numero di squadre di cui è stato caposquadra*/
+	 * Numero di squadre di cui e' stato caposquadra*/
 	private int numeroSquadre;
 	private boolean busy;
 	
