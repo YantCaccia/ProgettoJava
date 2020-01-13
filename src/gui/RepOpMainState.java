@@ -22,9 +22,6 @@ public class RepOpMainState extends JPanel{
 	private static final long serialVersionUID = -3430770777036368202L;
 	JList<Cantiere> list;
 	Cantiere[] larray;
-	//RepartoOperativo ro;
-	//RepartoAmministrativo ra;
-	//JButton orderButton;
 
 	public RepOpMainState(CardLayout cl, JPanel mainPanel, RepartoOperativo nRo, RepartoAmministrativo nRa) {
 		
@@ -62,12 +59,20 @@ public class RepOpMainState extends JPanel{
 			}			
 		});
 		
+		/*Pannello bottoni filtro*/
+		JPanel filterPanel = new JPanel(new GridLayout(1, 2));
 		/*Bottone per filtrare*/
 		JButton filterButton = new JButton("Filtra per valore");
 		filterButton.addActionListener(e -> new FrameCreator(new FilterPanel(this, nRo)));
+		/*Bottone per il reset del filtro*/
+		JButton resetButton = new JButton("Reset filtro");
+		resetButton.addActionListener(e -> populateList(nRo.getCantieri()));
+		
+		filterPanel.add(filterButton);
+		filterPanel.add(resetButton);
 		
 		JPanel buttonInList = new JPanel(new GridLayout(2,1));
-		buttonInList.add(filterButton);
+		buttonInList.add(filterPanel);
 		buttonInList.add(orderButton);
 		listPanel.add(buttonInList, BorderLayout.SOUTH);
 		
