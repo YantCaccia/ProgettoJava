@@ -54,59 +54,67 @@ public class RepartoAmministrativo implements Serializable{
 	}
 	
 	public ArrayList<Operaio> getOperai(){
-		ArrayList<Operaio> toberet = new ArrayList<Operaio>();
+		/*ArrayList<Operaio> toberet = new ArrayList<Operaio>();
 		for(Operaio o:operai) {
 			toberet.add(o.clone());
 		}
 		return toberet;
+		*/
+		return operai;
 	}
 	
 	public ArrayList<Dirigente> getDirigenti(){
-		ArrayList<Dirigente> toberet = new ArrayList<Dirigente>();
+		/*ArrayList<Dirigente> toberet = new ArrayList<Dirigente>();
 		for(Dirigente d:dirigenti) {
 			toberet.add(d.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return dirigenti;
 	}
 	
 	public ArrayList<Quadro> getQuadri(){
-		ArrayList<Quadro> toberet = new ArrayList<Quadro>();
+		/*ArrayList<Quadro> toberet = new ArrayList<Quadro>();
 		for(Quadro q:quadri) {
 			toberet.add(q.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return quadri;
 	}
 	
 	public ArrayList<Impiegato> getImpiegati(){
-		ArrayList<Impiegato> toberet = new ArrayList<Impiegato>();
+		/*ArrayList<Impiegato> toberet = new ArrayList<Impiegato>();
 		for(Impiegato i:impiegati) {
 			toberet.add(i.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return impiegati;
 	}
 	
 	public ArrayList<Fornitore> getFornitori(){
-		ArrayList<Fornitore> toberet = new ArrayList<Fornitore>();
+		/*ArrayList<Fornitore> toberet = new ArrayList<Fornitore>();
 		for(Fornitore f:fornitori) {
 			toberet.add(f.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return fornitori;
 	}
 	
 	public ArrayList<Locale> getLocali(){
-		ArrayList<Locale> toberet = new ArrayList<Locale>();
+		/*ArrayList<Locale> toberet = new ArrayList<Locale>();
 		for(Locale l:locali) {
 			toberet.add(l.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return locali;
 	}
 	
 	public ArrayList<Cliente> getClienti(){
-		ArrayList<Cliente> toberet = new ArrayList<Cliente>();
+		/*ArrayList<Cliente> toberet = new ArrayList<Cliente>();
 		for(Cliente c:clienti) {
 			toberet.add(c.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return clienti;
 	}
 	
 	public void addLavoratore(Operaio o) {

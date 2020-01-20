@@ -1,9 +1,7 @@
 /dipendenti/
 /dirigenza/
 /esterno/
+/gui/
+/main/
 /tester/
 /utils/
-/main/
-/gui/
-/CreateFornitoreState.class
-/CreateClienteState.class

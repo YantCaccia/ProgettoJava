@@ -144,15 +144,7 @@ public class RepOpMainState extends JPanel{
 		list.revalidate();
 		list.setSelectedIndex(0);
 	}
-	
-	/*public void createFrame(JPanel panel) {
-		JFrame aF = new JFrame();
-		aF.add(panel);
-		aF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		aF.setSize(400,550);
-		aF.setVisible(true);		
-	}*/
-	
+
 	public void ordinaCantieri(Comparator<Cantiere> comparator) {
 		Sorter<Cantiere> sorter = new Sorter<Cantiere>();
 		ArrayList<Cantiere> toBeSorted = new ArrayList<Cantiere>();

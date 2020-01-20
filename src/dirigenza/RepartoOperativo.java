@@ -19,11 +19,12 @@ public class RepartoOperativo implements Serializable{
 	}
 	
 	public ArrayList<Cantiere> getCantieri(){
-		ArrayList<Cantiere> toberet = new ArrayList<Cantiere>();
+		/*ArrayList<Cantiere> toberet = new ArrayList<Cantiere>();
 		for(Cantiere c:cantieri) {
 			toberet.add(c.clone());
 		}
-		return toberet;
+		return toberet;*/
+		return cantieri;
 	}
 	
 	public void addCantiere(Cantiere c) {

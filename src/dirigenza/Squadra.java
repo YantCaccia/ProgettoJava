@@ -17,7 +17,7 @@ public class Squadra implements Cloneable, Serializable{
 	
 	protected Squadra(Quadro caposquadra) throws LavoratoreImpegnatoException {
 		if(caposquadra.isBusy()) {
-			throw new LavoratoreImpegnatoException("Il lavoratore che hai cercato di aggiungere alla squadra è già impegnato");
+			throw new LavoratoreImpegnatoException("Il lavoratore che hai cercato di aggiungere alla squadra e' gia'� impegnato");
 		}
 		this.caposquadra = caposquadra;
 		this.assigned = false;

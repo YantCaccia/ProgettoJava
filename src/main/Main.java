@@ -30,10 +30,10 @@ public class Main {
 		o2.close();
 				
 		JFrame mainFrame = new MainFrame(ro, ra);
+		mainFrame.setVisible(true);
 		mainFrame.setTitle("Impresa Edile");
 		mainFrame.setSize(1000, 800);
 		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		mainFrame.setVisible(true);
 		mainFrame.addWindowListener(new WindowListener() {
 			
 			@Override
