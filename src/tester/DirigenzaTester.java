@@ -107,7 +107,7 @@ public class DirigenzaTester {
 		//Stampo la lista dei Locali
 		System.out.println("Lista dei locali:\n" + ra.getLocali());
 		
-		//Stampo la lista dei Locali in base alla città
+		//Stampo la lista dei Locali in base alla citta'
 		System.out.println("Lista dei Locali selezionati secondo una città:\n" + ra.getLocaleByCitta("Villaricca"));
 		
 		//Creo tre nuovi clienti
@@ -154,6 +154,9 @@ public class DirigenzaTester {
 		//Chiudiamo il primo Cantiere
 		ro.removeCantiere(can1);
 		System.out.println("\nDopo la chiusura del primo cantiere:\n" + ro.getCantieri());
+		
+		//Stampo la lista dei gli operai non impegnati dopo la chiusura del primo cantiere
+		System.out.println("\nOperai non impegnati (dovrebbero essere presente Mario Rossi e Claudio Polverino):\n" + ra.getOperaiNonImpegnati());
 		
 		//Cambiamo il Responsabile dell'ultimo cantiere
 		ro.changeResponsabileCantiere(q3, can3);

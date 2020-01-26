@@ -11,6 +11,7 @@ import dipendenti.Operaio;
 import dipendenti.Quadro;
 import dipendenti.Ruolo;
 import dirigenza.Cantiere;
+import dirigenza.ImpresaEdile;
 import dirigenza.LavoratoreImpegnatoException;
 import dirigenza.RepartoAmministrativo;
 import dirigenza.RepartoOperativo;
@@ -80,10 +81,10 @@ public class Populator {
 		
 		
 		//Creo nuovi Fornitori
-		Fornitore f1 = new Fornitore("Gabriele Cacciapuoti", "60607750617", Prodotto.ABBIGLIAMENTO);
-		Fornitore f2 = new Fornitore("Giacomo Guerra", "60607750618", Prodotto.STRUMENTI);
+		Fornitore f1 = new Fornitore("Zuri Delle Serre", "60607750617", Prodotto.ABBIGLIAMENTO);
+		Fornitore f2 = new Fornitore("Alessandro Guerra", "60607750618", Prodotto.STRUMENTI);
 		Fornitore f3 = new Fornitore("Massimo Pericolo", "60607750619", Prodotto.VEICOLI);
-		Fornitore f4 = new Fornitore("Gionata Boschetti", "60607750610", Prodotto.VEICOLI);
+		Fornitore f4 = new Fornitore("Gionata Boschetti", "60607750610", Prodotto.ABBIGLIAMENTO);
 		
 		ra.addFornitore(f1);
 		ra.addFornitore(f2);
@@ -91,9 +92,9 @@ public class Populator {
 		ra.addFornitore(f4);
 		
 		//Creo tre Locali
-		Locale l1 = new Locale("Magazzino", "Via Napoli 25", "Villaricca");
-		Locale l2 = new Locale("Archivio", "Via Po 11", "Giugliano");
-		Locale l3 = new Locale("Ufficio", "Via della Liberta 56", "Villaricca");
+		Locale l1 = new Locale("Magazzino", "Via Napoli 25", "Giugliano");
+		Locale l2 = new Locale("Archivio", "Via Po 11", "Villaricca");
+		Locale l3 = new Locale("Ufficio", "Via della Liberta 56", "Napoli");
 		
 		ra.addLocale(l1);
 		ra.addLocale(l2);
@@ -126,14 +127,12 @@ public class Populator {
 		Cantiere can2 = ro.createCantiere("Condominio", 2000, q1, s2);
 		Cantiere can3 = ro.createCantiere("Villetta", 7000, d2, s3);
 		
-		ObjectOutputStream ob1 = new ObjectOutputStream(new FileOutputStream("RepOpSave"));
-		ob1.writeObject(ro);
+		ImpresaEdile ie = new ImpresaEdile("Il Cantiere dei tuoi sogni", ra, ro);
+		
+		ObjectOutputStream ob1 = new ObjectOutputStream(new FileOutputStream("IESave"));
+		ob1.writeObject(ie);
 		ob1.close();
 		
-		ObjectOutputStream ob2 = new ObjectOutputStream(new FileOutputStream("RepAmmSave"));
-		ob2.writeObject(ra);
-		ob2.close();
-
 	}
 
 }

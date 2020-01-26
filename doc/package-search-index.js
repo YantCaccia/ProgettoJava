@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dipendenti"},{"l":"dirigenza"},{"l":"esterno"},{"l":"gui"},{"l":"gui.createStates"},{"l":"gui.details"},{"l":"gui.mainStates"},{"l":"gui.panels"},{"l":"main"}]

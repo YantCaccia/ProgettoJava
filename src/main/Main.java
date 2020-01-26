@@ -1,9 +1,6 @@
 package main;
 
-import dirigenza.LavoratoreImpegnatoException;
-import dirigenza.RepartoAmministrativo;
-import dirigenza.RepartoOperativo;
-import dirigenza.ResponsabileNonDirigenteExcpetion;
+import dirigenza.ImpresaEdile;
 import gui.MainFrame;
 
 import java.awt.event.WindowEvent;
@@ -17,19 +14,20 @@ import java.io.ObjectOutputStream;
 
 import javax.swing.*;
 
+/**
+ * gestisce l'avvio del programma
+ * @author antoc
+ *
+ */
 public class Main {
 	
-	public static void main(String[] args) throws LavoratoreImpegnatoException, ResponsabileNonDirigenteExcpetion, FileNotFoundException, IOException, ClassNotFoundException {
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		
-		ObjectInputStream o1 = new ObjectInputStream(new FileInputStream("RepAmmSave"));
-		RepartoAmministrativo ra = (RepartoAmministrativo) o1.readObject();
+		ObjectInputStream o1 = new ObjectInputStream(new FileInputStream("IESave"));
+		ImpresaEdile ie = (ImpresaEdile) o1.readObject();
 		o1.close();
-		
-		ObjectInputStream o2 = new ObjectInputStream(new FileInputStream("RepOpSave"));
-		RepartoOperativo ro = (RepartoOperativo) o2.readObject();
-		o2.close();
 				
-		JFrame mainFrame = new MainFrame(ro, ra);
+		JFrame mainFrame = new MainFrame(ie.getRopOp(), ie.getRepAmm());
 		mainFrame.setVisible(true);
 		mainFrame.setTitle("Impresa Edile");
 		mainFrame.setSize(1000, 800);
@@ -62,28 +60,17 @@ public class Main {
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
+
 				ObjectOutputStream ob1;
 				try {
-					ob1 = new ObjectOutputStream(new FileOutputStream("RepOpSave"));
-					ob1.writeObject(ro);
+					ob1 = new ObjectOutputStream(new FileOutputStream("IESave"));
+					ob1.writeObject(ie);
 					ob1.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
-				ObjectOutputStream ob2;
-				try {
-					ob2 = new ObjectOutputStream(new FileOutputStream("RepAmmSave"));
-					ob2.writeObject(ra);
-					ob2.close();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
+			
 			}
 			
 			@Override
