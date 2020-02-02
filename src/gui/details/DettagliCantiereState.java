@@ -157,8 +157,8 @@ public class DettagliCantiereState extends JPanel{
 	}
 	
 	public void populateOperaiList() {
-		Operaio[] opLibArr = new Operaio[ra.getOperaiNonImpegnati().size()];
-		ra.getOperaiNonImpegnati().toArray(opLibArr);
+		Operaio[] opLibArr = new Operaio[ra.getOperaiByState(false).size()];
+		ra.getOperaiByState(false).toArray(opLibArr);
 		opLibList.setListData(opLibArr);
 		opLibList.updateUI();
 		opLibList.repaint();

@@ -6,8 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import dirigenza.RepartoAmministrativo;
-
 /**
  * pannello che gestiche lo state principale del Reparto Amministrativo
  * @author antoc
@@ -19,7 +17,7 @@ public class RepAmmMainState extends JPanel{
 	 */
 	private static final long serialVersionUID = 5653987823691416704L;
 
-	public RepAmmMainState(CardLayout cl, JPanel mainPanel, RepartoAmministrativo nRa) {
+	public RepAmmMainState(CardLayout cl, JPanel mainPanel) {
 		setLayout(new GridLayout(5, 1));
 		
 		JButton fornitori = new JButton("Fornitori");

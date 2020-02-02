@@ -17,8 +17,6 @@ import esterno.Locale;
 import gui.FrameCreator;
 import gui.createStates.CreateLocaleState;
 import utils.Comparator;
-import utils.LocaleByCittaComparator;
-import utils.LocaleByNameComparator;
 import utils.Renderer;
 import utils.Sorter;
 
@@ -56,11 +54,17 @@ public class LocaliState extends JPanel {
 		orderButton.addActionListener(e -> {
 			if(orderButton.getText().equals("Ordine: per Nome")) {
 				orderButton.setText("Ordine: per Citta'");
-				ordinaLocali(new LocaleByCittaComparator());
+				//byCitta
+				ordinaLocali((l1,l2)->{
+					return l1.getCitta().compareTo(l2.getCitta());
+				});
 			}
 			else {
 				orderButton.setText("Ordine: per Nome");
-				ordinaLocali(new LocaleByNameComparator());
+				//byNome
+				ordinaLocali((l1,l2)->{
+					return l1.getNome().compareTo(l2.getNome());
+				});
 			}			
 		});
 		listPanel.add(orderButton, BorderLayout.SOUTH);

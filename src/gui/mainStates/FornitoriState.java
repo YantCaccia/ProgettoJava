@@ -18,8 +18,6 @@ import esterno.Prodotto;
 import gui.FrameCreator;
 import gui.createStates.CreateFornitoreState;
 import utils.Comparator;
-import utils.FornitoreByNameComparator;
-import utils.FornitoreByProdottoComparator;
 import utils.Renderer;
 import utils.Sorter;
 
@@ -58,11 +56,17 @@ public class FornitoriState extends JPanel{
 		orderButton.addActionListener(e -> {
 			if(orderButton.getText().equals("Ordine: per Nome")) {
 				orderButton.setText("Ordine: per Prodotto");
-				ordinaFornitori(new FornitoreByProdottoComparator());
+				//per prodotto
+				ordinaFornitori((c1, c2)->{
+					return c1.getProdottoFornito().toString().compareTo(c2.getProdottoFornito().toString());
+				});
 			}
 			else {
 				orderButton.setText("Ordine: per Nome");
-				ordinaFornitori(new FornitoreByNameComparator());
+				//per nome
+				ordinaFornitori((c1, c2)->{
+					return c1.getNome().compareTo(c2.getNome());
+				});
 			}			
 		});
 		listPanel.add(orderButton, BorderLayout.SOUTH);

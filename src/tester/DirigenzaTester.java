@@ -64,13 +64,13 @@ public class DirigenzaTester {
 		
 		//Stampo la lista degli Operai
 		System.out.println("\nStampo la lista degli Operai\n" + ra.getOperai());
-		System.out.println("\nStampo la lista degli Operai impegnati\n" + ra.getOperaiImpegnati());
-		System.out.println("\nStampo la lista degli Operai non impegnati\n" + ra.getOperaiNonImpegnati());
+		System.out.println("\nStampo la lista degli Operai impegnati\n" + ra.getOperaiByState(true));
+		System.out.println("\nStampo la lista degli Operai non impegnati\n" + ra.getOperaiByState(false));
 		
 		//Stampo la lista dei Quadri
 		System.out.println("\nStampo la lista dei Quadri\n" + ra.getQuadri());
-		System.out.println("\nStampo la lista dei Quadri impegnati\n" + ra.getQuadriImpegnati());
-		System.out.println("\nStampo la lista dei Quadri non impegnati\n" + ra.getQuadriNonImpegnati() +"\n");
+		System.out.println("\nStampo la lista dei Quadri impegnati\n" + ra.getQuadriByState(true));
+		System.out.println("\nStampo la lista dei Quadri non impegnati\n" + ra.getQuadriByState(true) +"\n");
 		
 		//Calcolo gli stipendi
 		System.out.println("Stipendio calcolato per l'Operaio " + o1.getNome() + " " + o1.getCognome() + ": $" + ra.calcolaStipendio(o1));
@@ -106,9 +106,6 @@ public class DirigenzaTester {
 		
 		//Stampo la lista dei Locali
 		System.out.println("Lista dei locali:\n" + ra.getLocali());
-		
-		//Stampo la lista dei Locali in base alla citta'
-		System.out.println("Lista dei Locali selezionati secondo una città:\n" + ra.getLocaleByCitta("Villaricca"));
 		
 		//Creo tre nuovi clienti
 		System.out.println("\nCreo nuovi Clienti e li aggiungo alla lista\n");
@@ -156,7 +153,7 @@ public class DirigenzaTester {
 		System.out.println("\nDopo la chiusura del primo cantiere:\n" + ro.getCantieri());
 		
 		//Stampo la lista dei gli operai non impegnati dopo la chiusura del primo cantiere
-		System.out.println("\nOperai non impegnati (dovrebbero essere presente Mario Rossi e Claudio Polverino):\n" + ra.getOperaiNonImpegnati());
+		System.out.println("\nOperai non impegnati (dovrebbero essere presente Mario Rossi e Claudio Polverino):\n" + ra.getOperaiByState(false));
 		
 		//Cambiamo il Responsabile dell'ultimo cantiere
 		ro.changeResponsabileCantiere(q3, can3);

@@ -16,7 +16,6 @@ import dirigenza.RepartoAmministrativo;
 import esterno.Cliente;
 import gui.FrameCreator;
 import gui.createStates.CreateClienteState;
-import utils.ClienteByNameComparator;
 import utils.Comparator;
 import utils.Renderer;
 import utils.Sorter;
@@ -55,7 +54,9 @@ public class ClientiState extends JPanel{
 		JButton orderButton = new JButton("Ordina");
 		orderButton.addActionListener(e -> {
 				orderButton.setText("Ordine: per Nome");
-				ordinaClienti(new ClienteByNameComparator());		
+				ordinaClienti((c1, c2)->{
+					return c1.getNome().compareTo(c2.getNome());
+				});		
 		});
 		listPanel.add(orderButton, BorderLayout.SOUTH);
 		

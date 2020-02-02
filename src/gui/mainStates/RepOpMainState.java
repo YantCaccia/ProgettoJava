@@ -59,11 +59,19 @@ public class RepOpMainState extends JPanel{
 		orderButton.addActionListener(e -> {
 			if(orderButton.getText().equals("Ordine: per Nome")) {
 				orderButton.setText("Ordine: per Valore");
-				ordinaCantieri(new CantiereByValueComparator());
+				//per valore
+				ordinaCantieri((o1, o2)->{
+					if(o1.getValore()<o2.getValore()) return 1;
+					if(o1.getValore()==o2.getValore()) return 0;
+					return -1;
+				});
 			}
 			else {
 				orderButton.setText("Ordine: per Nome");
-				ordinaCantieri(new CantiereByNomeComparator());
+				//per nome
+				ordinaCantieri((o1, o2)->{
+					return o1.getNome().compareTo(o2.getNome());
+				});
 			}			
 		});
 		
@@ -95,10 +103,6 @@ public class RepOpMainState extends JPanel{
 		remove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nRo.removeCantiere(list.getSelectedValue());
-				//
-				System.out.println(nRa.getOperaiNonImpegnati());
-				System.out.println(nRa.getOperaiImpegnati());
-				//
 				populateList(nRo.getCantieri());
 			}
 		});

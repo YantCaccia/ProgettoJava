@@ -20,8 +20,10 @@ public class InitState extends JPanel {
 		
 		JButton goToRa = new JButton("Reparto Amministrativo");
 		goToRa.addActionListener(e -> cl.show(mainPanel, "RepAmm"));
+		
 		JButton goToRo = new JButton("Reparto Operativo");
 		goToRo.addActionListener(e -> cl.show(mainPanel, "RepOp"));
+		
 		
 		add(goToRa);
 		add(goToRo);

@@ -8,6 +8,7 @@ public class LavoratoreImpegnatoException extends Exception {
 	public LavoratoreImpegnatoException() {
 		super("Il lavoratore che hai cercato di aggiunere e' gia' impegnato!");
 	}
+	
 	public LavoratoreImpegnatoException(String err) {
 		super(err);
 	}

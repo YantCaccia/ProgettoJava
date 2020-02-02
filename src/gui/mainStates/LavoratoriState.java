@@ -20,7 +20,6 @@ import gui.FrameCreator;
 import gui.createStates.CreateLavoratoreState;
 import gui.details.DettagliLavoratoreState;
 import utils.Comparator;
-import utils.LavoratoreByNomeComparator;
 import utils.Renderer;
 import utils.Sorter;
 
@@ -64,7 +63,12 @@ public class LavoratoriState extends JPanel{
 		JButton orderButton = new JButton("Ordina");
 		orderButton.addActionListener(e -> {
 				orderButton.setText("Ordine: per Nome");
-				ordinaLavoratori(new LavoratoreByNomeComparator());
+				ordinaLavoratori((l1,l2)->{
+					if(!l1.getCognome().equals(l2.getCognome())) { //se i due cognomi NON sono uguali
+						return l1.getCognome().compareTo(l2.getCognome());
+					}
+					else return l1.getNome().compareTo(l2.getNome());
+				});
 		});
 		
 		JPanel buttonInList = new JPanel(new GridLayout(1,1));
@@ -100,19 +104,19 @@ public class LavoratoriState extends JPanel{
 				ltd = nRa.getQuadri();
 				break;
 			case "Quadri impegnati":
-				ltd = nRa.getQuadriImpegnati();
+				ltd = nRa.getQuadriByState(true);
 				break;
 			case "Quadri non impegnati":
-				ltd = nRa.getQuadriNonImpegnati();
+				ltd = nRa.getQuadriByState(false);
 				break;
 			case "Operai":
 				ltd = nRa.getOperai();
 				break;
 			case "Operai impegnati":
-				ltd = nRa.getOperaiImpegnati();
+				ltd = nRa.getOperaiByState(true);
 				break;
 			case "Operai non impegnati":
-				ltd = nRa.getOperaiNonImpegnati();
+				ltd = nRa.getOperaiByState(false);
 				break;
 			default:
 				ltd = null;

@@ -287,7 +287,7 @@ public class RepartoAmministrativo implements Serializable{
 	 * ottieni la lista degli Operai non impegnati
 	 * @return la lista degli Operai non impegnati
 	 */
-	public ArrayList<Operaio> getOperaiNonImpegnati(){
+	/*public ArrayList<Operaio> getOperaiNonImpegnati(){
 		ArrayList<Operaio> toBeRet = new ArrayList<Operaio>();
 		for (Operaio l:operai) {
 			if(!l.isBusy()) {
@@ -295,16 +295,31 @@ public class RepartoAmministrativo implements Serializable{
 			}
 		}
 		return toBeRet;
-	}
+	}*/
 	
 	/**
 	 * ottieni la lista degli operai impegnati
 	 * @return la lista degli operai impegnati
 	 */
-	public ArrayList<Operaio> getOperaiImpegnati(){
+	/*public ArrayList<Operaio> getOperaiImpegnati(){
 		ArrayList<Operaio> toBeRet = new ArrayList<Operaio>();
 		for (Operaio l:operai) {
 			if(l.isBusy()) {
+				toBeRet.add(l);
+			}
+		}
+		return toBeRet;
+	}*/
+	
+	/**
+	 * ottieni la lista degli operai con stato specificato
+	 * @param state lo stato da ricercare (true se busy, false se libero)
+	 * @return la lista degli operai impegnati
+	 */
+	public ArrayList<Operaio> getOperaiByState(boolean state){
+		ArrayList<Operaio> toBeRet = new ArrayList<Operaio>();
+		for (Operaio l:operai) {
+			if(l.isBusy()==state) {
 				toBeRet.add(l);
 			}
 		}
@@ -315,7 +330,7 @@ public class RepartoAmministrativo implements Serializable{
 	 * ottieni la litsa dei Quadri non impegnati
 	 * @return la lista dei Quadri non impegnati
 	 */
-	public ArrayList<Quadro> getQuadriNonImpegnati(){
+	/*public ArrayList<Quadro> getQuadriNonImpegnati(){
 		ArrayList<Quadro> toBeRet = new ArrayList<Quadro>();
 		for (Quadro l:quadri) {
 			if(!l.isBusy()) {
@@ -323,16 +338,31 @@ public class RepartoAmministrativo implements Serializable{
 			}
 		}
 		return toBeRet;
-	}
+	}*/
 	
 	/**
 	 * ottieni la lista degli Operai impegnati
 	 * @return la lista degli Operai impegnati
 	 */
-	public ArrayList<Quadro> getQuadriImpegnati(){
+	/*public ArrayList<Quadro> getQuadriImpegnati(){
 		ArrayList<Quadro> toBeRet = new ArrayList<Quadro>();
 		for (Quadro l:quadri) {
 			if(l.isBusy()) {
+				toBeRet.add(l);
+			}
+		}
+		return toBeRet;
+	}*/
+	
+	/**
+	 * ottieni la lista degli Operai con stato specificato
+	 * @param state lo stato da ricercare (true se busy, false se libero)
+	 * @return la lista degli Operai impegnati
+	 */
+	public ArrayList<Quadro> getQuadriByState(boolean state){
+		ArrayList<Quadro> toBeRet = new ArrayList<Quadro>();
+		for (Quadro l:quadri) {
+			if(l.isBusy()==state) {
 				toBeRet.add(l);
 			}
 		}
@@ -349,21 +379,6 @@ public class RepartoAmministrativo implements Serializable{
 		for(Fornitore f:fornitori) {
 			if(f.getProdottoFornito()==p) {
 				toBeRet.add(f);
-			}
-		}
-		return toBeRet;
-	}
-	
-	/**
-	 * ottieni una lista dei locali con vincolo sulla citta'
-	 * @param citta la citta' in cui ogni locale deve essere
-	 * @return la lista dei locali nella citta' specificata
-	 */
-	public ArrayList<Locale> getLocaleByCitta(String citta){
-		ArrayList<Locale> toBeRet = new ArrayList<Locale>();
-		for(Locale l:locali) {
-			if(l.getCitta().equals(citta)) {
-				toBeRet.add(l);
 			}
 		}
 		return toBeRet;

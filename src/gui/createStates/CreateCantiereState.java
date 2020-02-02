@@ -76,7 +76,7 @@ public class CreateCantiereState extends JPanel{
 		JLabel caposquadraLabel = new JLabel("Caposquadra:");
 		JComboBox<Quadro> caposq = new JComboBox<Quadro>();
 		caposq.setRenderer(new Renderer());
-		for(Quadro q:ra.getQuadriNonImpegnati()) {
+		for(Quadro q:ra.getQuadriByState(false)) {
 			caposq.addItem(q);
 		}
 		caposqPanel.add(caposquadraLabel);
@@ -89,8 +89,8 @@ public class CreateCantiereState extends JPanel{
 		JLabel listaLabel = new JLabel("Componenti Squadra: (CTRL + Click)");
 		/*Creo una JList*/
 		JList<Operaio> list = new JList<Operaio>();
-		Operaio[] larray = new Operaio[ra.getOperaiNonImpegnati().size()];
-		ra.getOperaiNonImpegnati().toArray(larray);
+		Operaio[] larray = new Operaio[ra.getOperaiByState(false).size()];
+		ra.getOperaiByState(false).toArray(larray);
 		list.setListData(larray);
 		/*Creo un custom CellRenderer per visualizzare in maniere custom i dati in JList*/
 		list.setCellRenderer(new Renderer());

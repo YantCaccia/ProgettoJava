@@ -129,7 +129,7 @@ public class Populator {
 		
 		ImpresaEdile ie = new ImpresaEdile("Il Cantiere dei tuoi sogni", ra, ro);
 		
-		ObjectOutputStream ob1 = new ObjectOutputStream(new FileOutputStream("IESave"));
+		ObjectOutputStream ob1 = new ObjectOutputStream(new FileOutputStream("iesave.dat"));
 		ob1.writeObject(ie);
 		ob1.close();
 		

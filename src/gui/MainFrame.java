@@ -4,8 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import dirigenza.RepartoAmministrativo;
-import dirigenza.RepartoOperativo;
+import dirigenza.ImpresaEdile;
 import gui.mainStates.ClientiState;
 import gui.mainStates.FornitoriState;
 import gui.mainStates.InitState;
@@ -25,7 +24,7 @@ public class MainFrame extends JFrame {
 	JPanel mainPanel, initState, ROMainState, RAMainState, CreateCantiereState, FornitoriState, ClientiState, LocaliState, LavoratoriState;
 	CardLayout cl;
 	
-	public MainFrame(RepartoOperativo ro, RepartoAmministrativo ra) {
+	public MainFrame(ImpresaEdile ie) {
 		
 		mainPanel = new JPanel(new CardLayout());
 		cl = (CardLayout) mainPanel.getLayout();
@@ -34,27 +33,27 @@ public class MainFrame extends JFrame {
 		mainPanel.add(initState);
 		cl.addLayoutComponent(initState, "initState");
 		
-		ROMainState = new RepOpMainState(cl, mainPanel, ro, ra);
+		ROMainState = new RepOpMainState(cl, mainPanel, ie.getRopOp(), ie.getRepAmm());
 		mainPanel.add(ROMainState);
 		cl.addLayoutComponent(ROMainState, "RepOp");
 		
-		RAMainState = new RepAmmMainState(cl, mainPanel, ra);
+		RAMainState = new RepAmmMainState(cl, mainPanel);
 		mainPanel.add(RAMainState);
 		cl.addLayoutComponent(RAMainState, "RepAmm");
 		
-		FornitoriState = new FornitoriState(cl, mainPanel, ra);
+		FornitoriState = new FornitoriState(cl, mainPanel, ie.getRepAmm());
 		mainPanel.add(FornitoriState);
 		cl.addLayoutComponent(FornitoriState, "FornitoriState");
 		
-		ClientiState = new ClientiState(cl, mainPanel, ra);
+		ClientiState = new ClientiState(cl, mainPanel, ie.getRepAmm());
 		mainPanel.add(ClientiState);
 		cl.addLayoutComponent(ClientiState, "ClientiState");
 		
-		LocaliState = new LocaliState(cl, mainPanel, ra);
+		LocaliState = new LocaliState(cl, mainPanel, ie.getRepAmm());
 		mainPanel.add(LocaliState);
 		cl.addLayoutComponent(LocaliState, "LocaliState");
 		
-		LavoratoriState = new LavoratoriState(cl, mainPanel, ra);
+		LavoratoriState = new LavoratoriState(cl, mainPanel, ie.getRepAmm());
 		mainPanel.add(LavoratoriState);
 		cl.addLayoutComponent(LavoratoriState, "LavoratoriState");
 		
