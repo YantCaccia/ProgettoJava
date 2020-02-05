@@ -190,6 +190,7 @@ public class LavoratoriState extends JPanel{
 			
 			@Override
 			public void componentShown(ComponentEvent e) {
+				tendina.setSelectedIndex(0);
 				populateList(nRa.getLavoratori());
 				
 			}

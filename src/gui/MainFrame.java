@@ -27,6 +27,8 @@ public class MainFrame extends JFrame {
 	public MainFrame(ImpresaEdile ie) {
 		
 		mainPanel = new JPanel(new CardLayout());
+		
+		//accedo al Layout Manager del pannello principale
 		cl = (CardLayout) mainPanel.getLayout();
 		
 		initState = new InitState(cl, mainPanel);
